@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {UsersComponent} from './components/users/users.component';
 import {UserdetailComponent} from './components/userdetail/userdetail.component';
+import {UserResolver} from './resolvers/user.resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
   },
   {
     path: 'user/:uuid',
-    component: UserdetailComponent
+    component: UserdetailComponent,
+    resolve: {
+       resolvedResponse: UserResolver
+    }
   },
   {
     path: '**',
